@@ -3,7 +3,7 @@ import { Flex, Text, Button, Box } from '@chakra-ui/react';
 
 function SignIn() {
   const handleSignIn = () => {
-    window.location.href = "http://localhost:3001/auth/google";
+    window.location.href = "https://protected-peak-20722-b8ffb97d9c03.herokuapp.com/auth/google";
   };
   
   return (

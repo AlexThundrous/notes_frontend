@@ -42,7 +42,7 @@ function Notes(searchTerm) {
 
   const fetchNotes = async (searchTerm) => {
     try {
-      const response = await axios.get(`http://localhost:3001/notes/${googleId}`, {
+      const response = await axios.get(`https://protected-peak-20722-b8ffb97d9c03.herokuapp.com/notes/${googleId}`, {
         params: {
           search: searchTerm,
         },
@@ -62,7 +62,7 @@ function Notes(searchTerm) {
       };
 
       
-      await axios.post(`http://localhost:3001/notes/${googleId}`, newNote);
+      await axios.post(`https://protected-peak-20722-b8ffb97d9c03.herokuapp.com/notes/${googleId}`, newNote);
 
       
       fetchNotes();

@@ -52,7 +52,7 @@ const NoteCard = ({ note, googleId, onTagClick }) => {
 
   const handleSave = async () => {
     try {
-      await axios.put(`http://localhost:3001/notes/${googleId}/${noteId}`, {
+      await axios.put(`https://protected-peak-20722-b8ffb97d9c03.herokuapp.com/notes/${googleId}/${noteId}`, {
         title: editedTitle,
         content: editedContent,
         tags: editedTags,
@@ -68,7 +68,7 @@ const NoteCard = ({ note, googleId, onTagClick }) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:3001/notes/${googleId}/${noteId}`);
+      await axios.delete(`https://protected-peak-20722-b8ffb97d9c03.herokuapp.com/notes/${googleId}/${noteId}`);
       window.location.reload();
       onClose();
     } catch (error) {
