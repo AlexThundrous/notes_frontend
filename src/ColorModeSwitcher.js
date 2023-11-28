@@ -4,6 +4,10 @@ import { FaMoon, FaSun } from 'react-icons/fa';
 
 // Create a custom theme
 export const customTheme = extendTheme({
+  config: {
+    initialColorMode: 'dark',
+    useSystemColorMode: false, 
+  },
   styles: {
     global: (props) => ({
       body: {
