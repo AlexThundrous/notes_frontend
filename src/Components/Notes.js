@@ -52,29 +52,32 @@ function Notes(searchTerm) {
       console.error('Error fetching notes:', error);
     }
   };
-
+  
   const addNote = async () => {
     try {
+      const trimmedTagInput = tagInput.trim();
+  
       const newNote = {
         title: title,
         content: content,
-        tags: tags,
+        tags: trimmedTagInput !== '' ? [...tags, trimmedTagInput] : tags,
       };
-
-      
+  
       await axios.post(`https://protected-peak-20722-b8ffb97d9c03.herokuapp.com/notes/${googleId}`, newNote);
-
-      
+  
       fetchNotes();
-
+  
       onClose();
       setTitle('');
       setContent('');
       setTags([]);
+      setTagInput('');
     } catch (error) {
       console.error('Error adding note:', error);
     }
   };
+  
+  
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
@@ -120,6 +123,8 @@ function Notes(searchTerm) {
   const filteredNotes = selectedTags.length
     ? notes.filter((note) => note.tags.some((tag) => selectedTags.includes(tag)))
     : notes;
+ 
+
 
   return (
     <div>
